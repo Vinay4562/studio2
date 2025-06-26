@@ -334,7 +334,7 @@ header {
 }
 
 .about-section {
-  padding: 3rem 0;
+  padding: 0.2rem 0;
   background: linear-gradient(135deg, #fef3f8 0%, #f1eaff 100%);
 }
 
@@ -360,6 +360,7 @@ header {
   font-size: 1.2rem;
   color: #374151;
   line-height: 1.8;
+  text-align: justify;
 }
 
 .about-img {
