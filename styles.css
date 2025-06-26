@@ -17,8 +17,12 @@ header {
   position: relative;
 }
 
+.navbar .container {
+  padding-left: 0;
+}
+
 .navbar {
-  padding: 1rem 0;
+  padding: 1.5rem 0;
 }
 
 .nav-flex {
@@ -137,6 +141,14 @@ header {
   position: relative;
 }
 
+@media (max-width: 800px) {
+  .hero {
+    background-size: contain;
+    background-position: center top;
+    padding: 4rem 0 6rem 0;
+  }
+}
+
 .hero-content h1 {
   font-size: 2.5rem;
   font-weight: 700;
@@ -176,7 +188,7 @@ header {
 
 .visit-us-section {
   padding: 4rem 0;
-  background: linear-gradient(135deg, #fdf2f8 0%, #fae8ff 100%);
+  background: #fff;
   position: relative;
   overflow: hidden;
 }
@@ -187,6 +199,7 @@ header {
   font-weight: 700;
   color: #ec4899;
   margin-bottom: 1rem;
+  margin-top: 0.1rem;
   animation: fadeInDown 1s ease-out;
 }
 
@@ -209,35 +222,45 @@ header {
   animation: slideUp 1s ease-out forwards;
 }
 
-.visit-info {
-  flex: 1;
-  min-width: 300px;
-}
-
 .visit-card {
   background: rgba(255, 252, 249, 0.95);
   border-radius: 0.75rem;
   box-shadow: 0 5px 15px rgba(236, 72, 153, 0.1);
   padding: 1.5rem;
-  margin-bottom: 1.5rem;
+  flex: 1;
+  min-width: 300px;
   border: 1px solid rgba(236, 72, 153, 0.2);
   backdrop-filter: blur(5px);
   transition: all 0.3s ease;
 }
 
-.visit-card .visit-icon {
+.visit-item {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 1.5rem;
+}
+
+.visit-item:last-child {
+  margin-bottom: 0;
+}
+
+.visit-icon {
   font-size: 1.2rem;
   color: #ec4899;
   margin-right: 1rem;
-  vertical-align: middle;
+  margin-top: 0.5rem; /* Adds space above the icon */
 }
 
-.visit-card p {
+.visit-content {
+  flex: 1;
+}
+
+.visit-content p {
   margin: 0.2rem 0;
   color: #6d28d9;
 }
 
-.visit-card p strong {
+.visit-content p strong {
   color: #ec4899;
   font-weight: 600;
 }
@@ -291,6 +314,7 @@ header {
   }
   .visit-icon {
     font-size: 1rem;
+    margin-top: 0.3rem; /* Adjusted space for smaller screens */
   }
 }
 
@@ -461,9 +485,7 @@ header {
 }
 
 .services-section {
- 
-
- padding: 3rem 0;
+  padding: 3rem 0;
   background: #fff;
 }
 
@@ -545,9 +567,7 @@ header {
 
 .service-card:hover {
   transform: translateY(-10px) scale(1.02);
-  box-shadow: 0 8px 32px rgba(139, 
-
- 92, 246, 0.15);
+  box-shadow: 0 8px 32px rgba(139, 92, 246, 0.15);
 }
 
 .gallery-section {
@@ -581,6 +601,12 @@ header {
 .gallery-grid img:hover {
   transform: scale(1.05);
   box-shadow: 0 8px 32px rgba(139, 92, 246, 0.15);
+}
+
+@media (max-width: 800px) {
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 .pricing-section {
@@ -1245,43 +1271,57 @@ header {
   box-shadow: 0 6px 20px rgba(139, 92, 246, 0.3);
 }
 
-@media (max-width: 1100px) {
-  .contact-wrapper {
-    max-width: 90%;
-  }
-  .contact-card {
-    padding: 1rem;
-  }
-  .contact-form {
-    padding: 1rem;
-  }
+.floating-btn {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 50px;
+  font-size: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0, 171, 85, 0.3);
+  text-decoration: none;
+  z-index: 1000;
+  animation: zoomInOut 2s ease-in-out infinite;
+}
+
+.floating-whatsapp {
+  right: 20px;
+  background: #25D366;
+}
+
+.floating-call {
+  left: 20px;
+  background: #00cc00;
+}
+
+.floating-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.floating-icon svg {
+  width: 24px;
+  height: 24px;
 }
 
 @media (max-width: 800px) {
-  .contact-wrapper {
-    flex-direction: column;
-    gap: 1.5rem;
-  }
-  .contact-card {
-    padding: 0.75rem;
-  }
-  .contact-form {
-    padding: 0.75rem;
-  }
-  .contact-form h3 {
-    font-size: 1.2rem;
+  .floating-btn {
+    display: block;
   }
 }
 
-@media (max-width: 600px) {
-  .section-title {
-    font-size: 1.8rem;
+@keyframes zoomInOut {
+  0%, 100% {
+    transform: scale(1);
   }
-  .contact-card p {
-    font-size: 0.9rem;
-  }
-  .contact-icon-large {
-    font-size: 1.2rem;
+  50% {
+    transform: scale(1.2);
   }
 }
 
@@ -1405,7 +1445,7 @@ header {
 }
 
 @media (max-width: 1100px) {
-  .services-grid, .gallery-grid, .pricing-Grokgrid, .testimonials-grid {
+  .services-grid, .pricing-grid, .testimonials-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
@@ -1415,7 +1455,7 @@ header {
     flex-direction: column;
     gap: 2rem;
   }
-  .services-grid, .gallery-grid, .pricing-grid, .testimonials-grid {
+  .services-grid, .pricing-grid, .testimonials-grid {
     grid-template-columns: 1fr;
   }
   .hero-content h1 {
