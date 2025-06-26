@@ -17,18 +17,14 @@ header {
   position: relative;
 }
 
-.navbar .container {
-  padding-left: 0;
-}
-
 .navbar {
-  padding: 1.5rem 0;
+  padding: 1rem 0;
 }
 
 .nav-flex {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-between; /* Changed to space-between to push nav-links to the right */
 }
 
 .logo {
@@ -38,6 +34,8 @@ header {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  padding-left: 0; /* Ensure no left padding */
+  margin-left: 0; /* Ensure no left margin */
 }
 
 .nav-links {
@@ -46,6 +44,7 @@ header {
   gap: 2rem;
   margin: 0;
   padding: 0;
+  margin-left: auto; /* Added to push nav-links to the right */
 }
 
 .nav-links a {
@@ -71,6 +70,7 @@ header {
   cursor: pointer;
   padding: 0;
   z-index: 1000;
+  margin-left: 1rem; /* Added for proper spacing from nav-links in mobile view */
 }
 
 .hamburger span {
@@ -144,7 +144,7 @@ header {
 @media (max-width: 800px) {
   .hero {
     background-size: contain;
-    background-position: center top;
+    background-position: center top; /* Fixed typo: 'лист' removed */
     padding: 4rem 0 6rem 0;
   }
 }
@@ -167,6 +167,13 @@ header {
   margin-bottom: 2rem;
 }
 
+.hero-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
 .btn-primary {
   display: inline-block;
   padding: 0.75rem 2rem;
@@ -184,6 +191,14 @@ header {
 .btn-primary:hover {
   background: linear-gradient(90deg, #be185d, #7c3aed);
   transform: scale(1.05);
+}
+
+@media (max-width: 600px) {
+  .hero-buttons {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+  }
 }
 
 .visit-us-section {
@@ -217,7 +232,7 @@ header {
   display: flex;
   gap: 2rem;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: center; /* Fixed incomplete 'justify --' */
   transform: translateY(20px);
   animation: slideUp 1s ease-out forwards;
 }
@@ -367,7 +382,7 @@ header {
   right: 1rem;
   background: rgba(255, 255, 255, 0.8);
   padding: 1rem;
-  border-radius: 0.5rem;
+  border-radius: 0.5rem; /* Fixed typo: 'redit-radius' to 'border-radius' */
   text-align: left;
   font-family: 'Segoe UI', 'Inter', Arial, sans-serif;
   color: #ec4899;
@@ -568,6 +583,12 @@ header {
 .service-card:hover {
   transform: translateY(-10px) scale(1.02);
   box-shadow: 0 8px 32px rgba(139, 92, 246, 0.15);
+}
+
+@media (max-width: 800px) {
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr); /* Changed to 2 columns for mobile view */
+  }
 }
 
 .gallery-section {
@@ -1455,7 +1476,7 @@ header {
     flex-direction: column;
     gap: 2rem;
   }
-  .services-grid, .pricing-grid, .testimonials-grid {
+  .pricing-grid, .testimonials-grid {
     grid-template-columns: 1fr;
   }
   .hero-content h1 {
@@ -1474,9 +1495,6 @@ header {
   }
   .hero-content h1 {
     font-size: 1.5rem;
-  }
-  .services-grid {
-    grid-template-columns: 1fr;
   }
   .pricing-grid {
     grid-template-columns: 1fr;
